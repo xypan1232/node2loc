@@ -34,8 +34,8 @@ where dim1, ... , dimd is the *d*-dimensional representation learned by *node2ve
 
 ## 3. Train a LSTM classifier using learned embedding
 1. Train the LSTM classifier:<br>
-``` python3 rnn-kfold-run.py -c 16 --datapath $file -e 500 -u 400 -k 10``` <br>
+``` python3 rnn-kfold-run.py -c 16 --datapath nitration_standard_train.csv -e 500 -u 400 -k 10``` <br>
 where -c is the number of classes, --datapath is the training data with embedding as features, locaitons as the labels, -e is the dimension of embedding, -u is number of neurons in hidden layer, k is k-fold cross-validaiton. <br>
 2. Train the LSTM models and predict subcellular locations for new proteins: <br>
-```python3 rnn-pred-run.py --train datasets/nitration_standard_train.csv --test datasets/nitration_standard_test.csv``` <br>
+```python3 rnn-pred-run.py --train nitration_standard_train.csv --test nitration_standard_test.csv``` <br>
 where --train is the input training data, and --test is the input test data. <br>
