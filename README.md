@@ -30,10 +30,13 @@ where node1_id_int can be the protein ID. <br>
 <br>
 ### The output file has *n+1* lines for a graph with *n* vertices.  <br>
 The first line has the following format: <br>
-	num_of_nodes dim_of_representation <br>
+
+	num_of_nodes dim_of_representation
+
 <br>
 The next *n* lines are as follows: <br>
-	node_id dim1 dim2 ... dimd <br>
+	
+	node_id dim1 dim2 ... dimd
 
 where dim1, ... , dimd is the *d*-dimensional representation learned by *node2vec*. <br>
 
