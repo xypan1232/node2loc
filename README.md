@@ -21,12 +21,14 @@ Linux: Ubuntu 16.04  <br>
 ```python src/main.py --input STRING_9.1_edge.txt --output STRING_9.1_edge_500D.emd --dimensions 500```
 <br>
 where STRING_9.1_edge.txt is the human protein-protein network, STRING_9.1_edge_500D.emd is the learned embedding for all proteins in the network, and 500 is the specified dimension of the learned embedding. <br>
+<br>
 Please refer to <a href="https://github.com/aditya-grover/node2vec">node2vec github </a> for more details about how to prepare the input.<br>
 
-The supported input format is an edgelist: <br>
+### The supported input format is an edgelist: <br>
 	node1_id_int node2_id_int <br>
-
-The output file has *n+1* lines for a graph with *n* vertices.  <br>
+where node1_id_int can be the protein ID. <br>
+<br>
+### The output file has *n+1* lines for a graph with *n* vertices.  <br>
 The first line has the following format: <br>
 	num_of_nodes dim_of_representation <br>
 <br>
