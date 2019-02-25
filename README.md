@@ -10,7 +10,7 @@ it first uses node2vec to learn node embedding of proteins from a interaction ne
   
 ## 1. Learn node embedding from a protein-protein network using node2vec
 1. Download the human protein-protein network from STRING database v9.1, and download the compressed file <a href="http://string91.embl.de/newstring_cgi/show_download_page.pl?UserId=wOOpKXCrcQGf&sessionId=fcg4u2oXFFYd">protein.links.v9.1.txt.gz</a> <br>
-2. Download the node2vec software from the wbesite <a href="https://snap.stanford.edu/node2vec/">node2vec</a>. <br>
+2. Download the node2vec software from the wbesite <a href="https://snap.stanford.edu/node2vec/">node2vec</a>. you can directly download the source code from <a href="https://github.com/aditya-grover/node2vec">node2vec github </a> in currently directory. <br>
 3. Run the python script to generate the node embedding: <br>
 ```python src/main.py --input STRING_9.1_edge.txt --output STRING_9.1_edge_500D.emd --dimensions 500```
 <br>
