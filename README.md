@@ -41,7 +41,7 @@ The next *n* lines are as follows: <br>
 where dim1, ... , dimd is the *d*-dimensional representation learned by *node2vec*. <br>
 
 # 2. Reorder the learned embedding using Minimum redundancy maximum relevance (mRMR).
-1. Download the mRMR source code from the website <a href="http://home.penglab.com/proj/mRMR/index.htm"><http://home.penglab.com/proj/mRMR/index.htm </a>. <br>
+1. Download the mRMR source code from the website <a href="http://home.penglab.com/proj/mRMR/index.htm"</a><http://home.penglab.com/proj/mRMR/index.htm </a>. <br>
 
 # 3. Train a LSTM classifier using learned embedding, including version with Synthetic Minority Over-sampling Technique (SMOTE) and without SMOTE, which is integrated in imbalanced-learn.
 
