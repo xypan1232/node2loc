@@ -45,7 +45,7 @@ where dim1, ... , dimd is the *d*-dimensional representation learned by *node2ve
 
 # 3. Train a LSTM classifier using learned embedding, including version with Synthetic Minority Over-sampling Technique (SMOTE) and without SMOTE, which is integrated in imbalanced-learn.
 
-In this study, node2loc mainly consists of the following three components: 1) learned embedding from a protein-protein network using node2vec; 2) SMOTE for oversampling minority classes; 3) a LSTM classifier for classifying 16 subcellular locations. Please refer to 3.2 for how to run node2loc<br>
+In this study, node2loc mainly consists of the following three components: 1) learned embedding from a protein-protein network using node2vec; 2) SMOTE for oversampling minority classes; 3) a LSTM classifier for classifying 16 subcellular locations. Please refer to 3.2 for how to run node2loc for classifying and predicting protein subcellular locations.<br>
 
 ## 3.1 Train and test LSTM classifier without SMOTE for oversampling.
 1. Train the LSTM classifier without SMOTE for over-sampling:<br>
