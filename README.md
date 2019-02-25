@@ -25,7 +25,7 @@ where STRING_9.1_edge.txt is the human protein-protein network, STRING_9.1_edge_
 Please refer to <a href="https://github.com/aditya-grover/node2vec">node2vec github </a> for more details about how to prepare the input.<br>
 
 ### The supported input format is an edgelist: <br>
-	node1_id_int node2_id_int <br>
+	node1_id_int node2_id_int
 where node1_id_int can be the protein ID. <br>
 <br>
 ### The output file has *n+1* lines for a graph with *n* vertices.  <br>
