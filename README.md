@@ -33,10 +33,23 @@ where dim1, ... , dimd is the *d*-dimensional representation learned by *node2ve
 ## 2. Reorder the learned embedding using Minimum redundancy maximum relevance (mRMR).
 1. Download the mRMR source code from the website <a href="http://home.penglab.com/proj/mRMR/index.htm"><http://home.penglab.com/proj/mRMR/index.htm </a>. <br>
 
-## 3. Train a LSTM classifier using learned embedding
-1. Train the LSTM classifier:<br>
+## 3. Train a LSTM classifier using learned embedding, including version with Synthetic Minority Over-sampling Technique (SMOTE) and without SMOTE.
+
+In this study, node2loc consists of the following componenets: 1) learned embedding from a protein-protein network using node2vec; 2) SMOTE for over-sampling minority classes; 3) a LSTM classifier for classifying 16 subcellular locaitons. <br>
+
+# 3.1 Train and test LSTM classifier without SMOTE for over-sampling.
+1. Train the LSTM classifier without SMOTE for over-sampling:<br>
 ``` python3 rnn-kfold-run.py -c 16 --datapath nitration_standard_train.csv -e 500 -u 400 -k 10``` <br>
 where -c is the number of classes, --datapath is the training data with embedding as features, locaitons as the labels, -e is the dimension of embedding, -u is number of neurons in hidden layer, k is k-fold cross-validaiton. <br>
-2. Train the LSTM models and predict subcellular locations for new proteins: <br>
+2. Train the LSTM classifier without SMOTE for over-sampling and predict subcellular locations for new proteins: <br>
 ```python3 rnn-pred-run.py --train nitration_standard_train.csv --test nitration_standard_test.csv``` <br>
 where --train is the input training data, and --test is the input test data. <br>
+
+# 3.2 Train and test LSTM classifier with SMOTE for over-sampling.
+1. Train the LSTM classifier with SMOTE for over-sampling:<br>
+``` python3 rnn-kfold-smote-run.py -c 16 --datapath nitration_standard_train.csv -e 500 -u 400 -k 10``` <br>
+where -c is the number of classes, --datapath is the training data with embedding as features, locaitons as the labels, -e is the dimension of embedding, -u is number of neurons in hidden layer, k is k-fold cross-validaiton. <br>
+2. Train the LSTM classifier with SMOTE for over-sampling and predict subcellular locations for new proteins: <br>
+```python3 rnn-smote-pred-run.py --train nitration_standard_train.csv --test nitration_standard_test.csv``` <br>
+where --train is the input training data, and --test is the input test data. <br>
+
