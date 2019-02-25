@@ -2,12 +2,17 @@
 To identify the functions of a protein, we first need know where this protein is located. Interacting proteins tend to locate in the same subcellular location. Thus, it is imperative to take the protein-protein interactions into account for computational identification of protein subcellular locations. <br>
 we present a deep learning based method, node2loc, to predict protein subcellular location. node2loc first learns distributed representations of proteins in a protein-protein network, which acquires representations from unlabeled data for downstream tasks. Then the learned representations are further fed into a recurrent neural network (RNN) to predict subcellular locations. 
 
+# Dependencies and development enviroment
+
 ## Package dependencies
   * <a href=https://github.com/scikit-learn/scikit-learn>sklearn 0.20.0</a> , and also its dependency numpy, pandas and scipy. <br>
   * <a href=https://github.com/scikit-learn-contrib/imbalanced-learn>imbalanced-learn</a> <br>
   * <a href=https://www.tensorflow.org/> TensorFlow 1.10+ </a> <br>
   * Python 3.6 <br>
-
+  
+## OS Requirements
+This package is supported for *Linux* operating systems. The package has been tested on the following systems: <br>
+Linux: Ubuntu 16.04  <br>
   
 # 1. Learn node embedding from a protein-protein network using node2vec
 1. Download the human protein-protein network from STRING database v9.1, and download the compressed file <a href="http://string91.embl.de/newstring_cgi/show_download_page.pl?UserId=wOOpKXCrcQGf&sessionId=fcg4u2oXFFYd">protein.links.v9.1.txt.gz</a> <br>
