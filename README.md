@@ -43,7 +43,7 @@ where dim1, ... , dimd is the *d*-dimensional representation learned by *node2ve
 # 2. Reorder the learned embedding using Minimum redundancy maximum relevance (mRMR).
 1. Download the mRMR source code from the website <a href="http://home.penglab.com/proj/mRMR/index.htm"><http://home.penglab.com/proj/mRMR/index.htm </a>. <br>
 
-# 3. Train a LSTM classifier using learned embedding, including version with Synthetic Minority Over-sampling Technique (SMOTE) and without SMOTE.
+# 3. Train a LSTM classifier using learned embedding, including version with Synthetic Minority Over-sampling Technique (SMOTE) and without SMOTE, which is integrated in imbalanced-learn.
 
 In this study, node2loc mainly consists of the following three components: 1) learned embedding from a protein-protein network using node2vec; 2) SMOTE for oversampling minority classes; 3) a LSTM classifier for classifying 16 subcellular locations. Please refer to 3.2 for how to run node2loc<br>
 
