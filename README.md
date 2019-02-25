@@ -15,6 +15,19 @@ it first uses node2vec to learn node embedding of proteins from a interaction ne
 ```python src/main.py --input STRING_9.1_edge.txt --output STRING_9.1_edge_500D.emd --dimensions 500```
 <br>
 where STRING_9.1_edge.txt is the human protein-protein network, STRING_9.1_edge_500D.emd is the learned embedding for all proteins in the network, and 500 is the specified dimension of the learned embedding. <br>
+Please refer to <a href="https://github.com/aditya-grover/node2vec">node2vec github </a> for more details about how to prepare the input.<br>
+
+The supported input format is an edgelist: <br>
+	node1_id_int node2_id_int <br>
+
+The output file has *n+1* lines for a graph with *n* vertices.  <br>
+The first line has the following format: <br>
+	num_of_nodes dim_of_representation <br>
+<br>
+The next *n* lines are as follows: <br>
+	node_id dim1 dim2 ... dimd <br>
+
+where dim1, ... , dimd is the *d*-dimensional representation learned by *node2vec*. <br>
 
 ## 2. Reorder the learned embedding using Minimum redundancy maximum relevance (mRMR).
 1. Download the mRMR source code from the website <a href="http://home.penglab.com/proj/mRMR/index.htm"><http://home.penglab.com/proj/mRMR/index.htm </a>. <br>
