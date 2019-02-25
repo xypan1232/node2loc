@@ -20,3 +20,7 @@ where STRING_9.1_edge.txt is the human protein-protein network, STRING_9.1_edge_
 1. Download the mRMR source code from the website <a href="http://home.penglab.com/proj/mRMR/index.htm"><http://home.penglab.com/proj/mRMR/index.htm </a>. <br>
 
 ## 3. Train a LSTM classifier using learned embedding
+1. Train the LSTM classifier:
+``` python3 rnn-kfold-run.py -c 16 --datapath $file -e 500 -u 400 -k 10```
+where c is the number of classes, datapath is the training data with embedding as features, locaitons as the labels, e is the dimension of embedding, u is number of neurons in hidden layer, k is k-fold cross-validaiton.
+2. Predict subcellular locations for new proteins.
