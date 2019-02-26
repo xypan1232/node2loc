@@ -45,7 +45,7 @@ where dim1, ... , dimd is the *d*-dimensional representation learned by *node2ve
 
 In this study, node2loc mainly consists of the following three components: 1) learned embedding from a protein-protein network using node2vec; 2) SMOTE for oversampling minority classes; 3) a LSTM classifier for classifying 16 subcellular locations. Please refer to 3.2 for how to run node2loc for classifying and predicting protein subcellular locations.<br>
 
-Here we provided the learned embedding with 500-D, you can use Minimum redundancy maximum relevance (mRMR) to reorder the embedding, then train and evaluate each feature subset using IFS with RNN, and select the feature subset with the best performance. <br>
+Here we provided the learned embedding with 500-D, you can use Minimum redundancy maximum relevance (<a href="http://home.penglab.com/proj/mRMR/index.htm">mRMR</a>) to reorder the embedding, then train and evaluate each feature subset using IFS with RNN, and select the feature subset with the best performance. <br>
 
 And a training set with embedding as reprenstations for proteins and subcellular locaitons as lables is given in this repository. The training file is train_dataset.zip, and you need decompress it. The mapping between label ID and subcellular locations is given in file labelID_to_locations. test_dataset.zip is the embedding for other proteins not in the benchmakr set, and we want to predict the locations for them. <br>
 
