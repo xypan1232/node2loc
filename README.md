@@ -40,14 +40,12 @@ The next *n* lines are as follows: <br>
 
 where dim1, ... , dimd is the *d*-dimensional representation learned by *node2vec*. <br>
 
-# 2. Reorder the learned embedding using Minimum redundancy maximum relevance (mRMR).
-1. Download the mRMR source code from the website <a href="http://home.penglab.com/proj/mRMR/index.htm">http://home.penglab.com/proj/mRMR/index.htm</a>. <br>
 
-# 3. Train a LSTM classifier using learned embedding, including version with Synthetic Minority Over-sampling Technique (SMOTE) and without SMOTE, which is integrated in imbalanced-learn.
+# 2. Train a LSTM classifier using learned embedding, including version with Synthetic Minority Over-sampling Technique (SMOTE) and without SMOTE, which is integrated in imbalanced-learn.
 
 In this study, node2loc mainly consists of the following three components: 1) learned embedding from a protein-protein network using node2vec; 2) SMOTE for oversampling minority classes; 3) a LSTM classifier for classifying 16 subcellular locations. Please refer to 3.2 for how to run node2loc for classifying and predicting protein subcellular locations.<br>
 
-## 3.1 Train and test LSTM classifier without SMOTE for oversampling.
+## 2.1 Train and test LSTM classifier without SMOTE for oversampling.
 1. Train the LSTM classifier without SMOTE for over-sampling:<br>
 ``` python3 rnn-kfold-run.py -c 16 --datapath nitration_standard_train.csv -e 500 -u 400 -k 10``` <br>
 where -c is the number of classes, --datapath is the training file with embedding as features, locations as the labels, -e is the dimension of embedding, -u is number of neurons in the hidden layer of LSTM, k is k-fold cross-validation. <br>
@@ -55,11 +53,16 @@ where -c is the number of classes, --datapath is the training file with embeddin
 ```python3 rnn-pred-run.py --train nitration_standard_train.csv --test nitration_standard_test.csv``` <br>
 where --train is the input training data, and --test is the input test data. <br>
 
-## 3.2 Train and test LSTM classifier with SMOTE for oversampling.
+## 2.2 Train and test LSTM classifier with SMOTE for oversampling.
 1. Train the LSTM classifier with SMOTE for over-sampling:<br>
 ``` python3 rnn-kfold-smote-run.py -c 16 --datapath nitration_standard_train.csv -e 500 -u 400 -k 10``` <br>
 where -c is the number of classes, --datapath is the training file with embedding as features, locations as the labels, -e is the dimension of embedding, -u is number of neurons in the hidden layer of LSTM, k is k-fold cross-validation. <br>
 2. Train the LSTM classifier with SMOTE for over-sampling and predict subcellular locations for new proteins: <br>
 ```python3 rnn-smote-pred-run.py --train nitration_standard_train.csv --test nitration_standard_test.csv``` <br>
 where --train is the input training data, and --test is the input test data. <br>
+
+
+# 3. Visualize the learned embedding using TSNE, which is implemented in sklearn.
+You can  run ```python3 vis_embedding.py ``` <br>
+here we visualize the learned embedding (train_dataset.csv decompressed from train_dataset.zip) for proteins in the benchmark set. <br>
 

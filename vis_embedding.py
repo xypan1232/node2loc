@@ -50,7 +50,7 @@ def visualize_scatter(data_2d, label_ids, figsize=(10,10)):
 labels_ss = "Biological membrane	Cell periphery	Cytoplasm	Cytoplasmic vesicle	Endoplasmic reticulum	Endosome	Extracellular space or cell surface	Flagellum or cilium	Golgi apparatus	Microtubule cytoskeleton	Mitochondrion	Nuclear periphery	Nucleolus	Nucleus	Peroxisome	Vacuole"
 labels_list = labels_ss.split("\t")
 id_to_label_dict = {k +1 : v for k, v in enumerate(labels_list)}
-data0 = np.genfromtxt('subcellular_location_n2v-detailed.csv', delimiter = ',', skip_header= 1)
+data0 = np.genfromtxt('train_dataset.csv', delimiter = ',', skip_header= 1)
 label_ids =  data0[:, 0]
 result = data0[:, 2:]
 #pdb.set_trace()
