@@ -47,7 +47,7 @@ In this study, node2loc mainly consists of the following three components: 1) le
 
 Here we provided the learned embedding with 500-D. you can use Minimum redundancy maximum relevance (<a href="http://home.penglab.com/proj/mRMR/index.htm">mRMR</a>) to reorder the embedding, then train and evaluate each feature subset using IFS with RNN, and select the feature subset with the best performance. <br>
 
-The dataset with 500-D embedding as reprenstations for proteins and subcellular locaitons as lables is given in this repository, including training and test set file. The training file is train_dataset.zip, and you need decompress it. The mapping between label ID and subcellular locations is given in file labelID_to_locations. test_dataset.zip is the embedding for other proteins not in the benchmakr set, and we want to predict the locations for them. <br>
+The dataset with 500-D embedding as reprenstations for proteins and subcellular locaitons as lables is given in this repository, including training and test set file. The training file is train_dataset.zip, and you need decompress it. The mapping between label ID and subcellular locations is given in file labelID_to_locations. The test file test_dataset.zip contains the embedding for other proteins not in the benchmakr set, and we want to predict the locations for them. <br>
 
 You can test node2loc on the uploaded train_dataset.zip using k-fold crossvalidation. <br>
 You can also predict the location for the proteins in test_dataset.zip using the trained node2loc model on train_dataset.zip. The output file gives the predicted locations for all proteins in the test set. <br>
