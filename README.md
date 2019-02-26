@@ -47,25 +47,26 @@ In this study, node2loc mainly consists of the following three components: 1) le
 
 Here we provided the learned embedding with 500-D, you can use Minimum redundancy maximum relevance (mRMR) to reorder the embedding, then train and evaluate each feature subset using IFS with RNN, and select the feature subset with thebest performance. <br>
 
-And a training set with embedding as reprenstations for proteins and subcellular locaitons as lables is given in this repository. The training file is train_dataset.zip, and you need decompress it. The mapping between label ID and subcellular locations is given in file labelID_to_locations. <br>
+And a training set with embedding as reprenstations for proteins and subcellular locaitons as lables is given in this repository. The training file is train_dataset.zip, and you need decompress it. The mapping between label ID and subcellular locations is given in file labelID_to_locations. test_dataset.zip is the embedding for other proteins not in the benchmakr set, and we want to predict the locations for them. <br>
 
 You can test node2loc on the uploaded train_dataset.zip using k-fold crossvalidation. <br>
+You can also predict the location for the proteins in test_dataset.zip using the trained node2loc model on train_dataset.zip. The output file gives the predicted locations for all proteins in the test set. <br>
 
 ## 2.1 Train and test LSTM classifier without SMOTE for oversampling.
 1. Train the LSTM classifier without SMOTE for over-sampling:<br>
 ``` python3 rnn-kfold-run.py -c 16 --datapath train_dataset.csv -e 500 -u 400 -k 10``` <br>
-where -c is the number of classes, --datapath is the training file with embedding as features, locations as the labels, -e is the dimension of embedding, -u is number of neurons in the hidden layer of LSTM, k is k-fold cross-validation. <br>
+where -c is the number of classes, --datapath is the training file with embedding as features, locations as the labels, -e is the dimension of embedding, -u is number of neurons in the hidden layer of LSTM, k is k-fold cross-validation. This program will evaluate the node2loc using k-fold cross-validation. <br>
 2. Train the LSTM classifier without SMOTE for over-sampling and predict subcellular locations for new proteins: <br>
 ```python3 rnn-pred-run.py --train train_dataset.csv --test test_dataset.csv``` <br>
-where --train is the input training data, and --test is the input test data. <br>
+where --train is the input training data, and --test is the input test data. This program will predict the locaitons for all proteins in test set using the trained node2loc model on train set.<br>
 
 ## 2.2 Train and test LSTM classifier with SMOTE for oversampling.
 1. Train the LSTM classifier with SMOTE for over-sampling:<br>
 ``` python3 rnn-kfold-smote-run.py -c 16 --datapath train_dataset.csv -e 500 -u 400 -k 10``` <br>
-where -c is the number of classes, --datapath is the training file with embedding as features, locations as the labels, -e is the dimension of embedding, -u is number of neurons in the hidden layer of LSTM, k is k-fold cross-validation. <br>
+where -c is the number of classes, --datapath is the training file with embedding as features, locations as the labels, -e is the dimension of embedding, -u is number of neurons in the hidden layer of LSTM, k is k-fold cross-validation. This program will evaluate the node2loc using k-fold cross-validation. <br>
 2. Train the LSTM classifier with SMOTE for over-sampling and predict subcellular locations for new proteins: <br>
 ```python3 rnn-smote-pred-run.py --train train_dataset.csv --test test_dataset.csv``` <br>
-where --train is the input training data, and --test is the input test data. <br>
+where --train is the input training data, and --test is the input test data. This program will predict the locaitons for all proteins in test set using the trained node2loc model on train set.<br>
 
 
 # 3. Visualize the learned embedding using TSNE, which is implemented in sklearn.
