@@ -45,20 +45,23 @@ where dim1, ... , dimd is the *d*-dimensional representation learned by *node2ve
 
 In this study, node2loc mainly consists of the following three components: 1) learned embedding from a protein-protein network using node2vec; 2) SMOTE for oversampling minority classes; 3) a LSTM classifier for classifying 16 subcellular locations. Please refer to 3.2 for how to run node2loc for classifying and predicting protein subcellular locations.<br>
 
+Here we provided the learned embedding with 500-D. And a training set with embedding as reprenstations for proteins, and subcellular locaitons as lables. The training file is train_dataset.zip, and you need decompress it. The mapping between label ID and subcellular locations is given in file labelID_to_locations. <br>
+
+
 ## 2.1 Train and test LSTM classifier without SMOTE for oversampling.
 1. Train the LSTM classifier without SMOTE for over-sampling:<br>
-``` python3 rnn-kfold-run.py -c 16 --datapath nitration_standard_train.csv -e 500 -u 400 -k 10``` <br>
+``` python3 rnn-kfold-run.py -c 16 --datapath train_dataset.csv -e 500 -u 400 -k 10``` <br>
 where -c is the number of classes, --datapath is the training file with embedding as features, locations as the labels, -e is the dimension of embedding, -u is number of neurons in the hidden layer of LSTM, k is k-fold cross-validation. <br>
 2. Train the LSTM classifier without SMOTE for over-sampling and predict subcellular locations for new proteins: <br>
-```python3 rnn-pred-run.py --train nitration_standard_train.csv --test nitration_standard_test.csv``` <br>
+```python3 rnn-pred-run.py --train train_dataset.csv --test nitration_standard_test.csv``` <br>
 where --train is the input training data, and --test is the input test data. <br>
 
 ## 2.2 Train and test LSTM classifier with SMOTE for oversampling.
 1. Train the LSTM classifier with SMOTE for over-sampling:<br>
-``` python3 rnn-kfold-smote-run.py -c 16 --datapath nitration_standard_train.csv -e 500 -u 400 -k 10``` <br>
+``` python3 rnn-kfold-smote-run.py -c 16 --datapath train_dataset.csv -e 500 -u 400 -k 10``` <br>
 where -c is the number of classes, --datapath is the training file with embedding as features, locations as the labels, -e is the dimension of embedding, -u is number of neurons in the hidden layer of LSTM, k is k-fold cross-validation. <br>
 2. Train the LSTM classifier with SMOTE for over-sampling and predict subcellular locations for new proteins: <br>
-```python3 rnn-smote-pred-run.py --train nitration_standard_train.csv --test nitration_standard_test.csv``` <br>
+```python3 rnn-smote-pred-run.py --train train_dataset.csv --test nitration_standard_test.csv``` <br>
 where --train is the input training data, and --test is the input test data. <br>
 
 
