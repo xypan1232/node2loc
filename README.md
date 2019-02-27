@@ -15,7 +15,7 @@ This package is supported for *Linux* operating systems. The package has been te
 Linux: Ubuntu 16.04  <br>
   
 # 1. Learn node embedding from a protein-protein network using node2vec
-1. Download the human protein-protein network from STRING database v9.1, and download the compressed file <a href="http://string91.embl.de/newstring_cgi/show_download_page.pl?UserId=wOOpKXCrcQGf&sessionId=fcg4u2oXFFYd">protein.links.v9.1.txt.gz</a> <br>
+1. Download the human protein-protein network from STRING database v9.1, and download the compressed file <a href="http://string91.embl.de/newstring_cgi/show_download_page.pl?UserId=wOOpKXCrcQGf&sessionId=fcg4u2oXFFYd">protein.links.v9.1.txt.gz</a>. It needs be transfered to the below described support format. <br>
 2. Download the node2vec software from the website <a href="https://snap.stanford.edu/node2vec/">node2vec</a>. you can directly download the source code from <a href="https://github.com/aditya-grover/node2vec">node2vec github </a> to working directory. <br>
 3. Run the python script to generate the node embedding: <br>
 ```python src/main.py --input STRING_9.1_edge.txt --output STRING_9.1_edge_500D.emd --dimensions 500```
@@ -45,7 +45,7 @@ where dim1, ... , dimd is the *d*-dimensional representation learned by *node2ve
 
 In this study, node2loc mainly consists of the following three components: 1) learned embedding from a protein-protein network using node2vec; 2) SMOTE for oversampling minority classes; 3) a LSTM classifier for classifying 16 subcellular locations. Please refer to 3.2 for how to run node2loc for classifying and predicting protein subcellular locations.<br>
 
-Here we provided the learned embedding with 500-D. you can use Minimum redundancy maximum relevance (<a href="http://home.penglab.com/proj/mRMR/index.htm">mRMR</a>) to reorder the embedding, then train and evaluate each feature subset using IFS with RNN, and select the feature subset with the best performance. <br>
+Here we provided the learned embedding with 500-D learned from a human protein-protein network. To yield higher performance, you can use Minimum redundancy maximum relevance (<a href="http://home.penglab.com/proj/mRMR/index.htm">mRMR</a>) to reorder the embedding, then train and evaluate each feature subset using IFS with RNN, and select the feature subset with the best performance. <br>
 
 The dataset with 500-D embedding as reprenstations for proteins and subcellular locaitons as lables is given in this repository, including training and test set file. The training file is train_dataset.zip, and you need decompress it. The mapping between label ID and subcellular locations is given in file labelID_to_locations. The test file test_dataset.zip contains the embedding for other proteins not in the benchmakr set, and we want to predict the locations for them. <br>
 
