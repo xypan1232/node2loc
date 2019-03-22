@@ -26,7 +26,7 @@ Please refer to <a href="https://github.com/aditya-grover/node2vec">node2vec git
 
 ### The supported input format is an edgelist: <br>
 	node1_id_int node2_id_int
-where node1_id_int can be the protein number. <br>
+where node1_id_int can be the protein ID number. <br>
 <br>
 ### The output file has *n+1* lines for a graph with *n* vertices.  <br>
 The first line has the following format: <br>
@@ -47,7 +47,7 @@ In this study, node2loc mainly consists of the following three components: 1) le
 
 Here we provided the learned embedding with 500-D learned from a human protein-protein network. To yield higher performance, you can use Minimum redundancy maximum relevance (<a href="http://home.penglab.com/proj/mRMR/index.htm">mRMR</a>) to reorder the embedding, then train and evaluate each feature subset using IFS with RNN, and select the feature subset with the best performance. <br>
 
-The dataset with 500-D embedding as reprenstations for proteins and subcellular locaitons as labels is given in this repository, including training and test set file. The training file is train_dataset.zip, and you need decompress it to train_dataset.csv that is the embedding of proteins, and train_sample.txt that is the protein IDs as sample names. The mapping between label ID and subcellular locations is given in file labelID_to_locations. The test file test_dataset.zip contains the embedding for other proteins not in the benchmakr set, and we want to predict the locations for them. <br>
+The dataset with 500-D embedding as reprenstations for proteins and subcellular locaitons as labels is given in this repository, including training and test set file. The training file is "train_dataset.zip", and you can decompress it to "train_dataset.csv" that is the embedding of proteins, and "train_sample.txt" that is the protein IDs as sample names. The mapping between label ID and subcellular locations is given in file labelID_to_locations. The test file test_dataset.zip contains the embedding for other proteins not in the benchmakr set and protein names correpsond to the embedding, and we want to predict the locations for them. <br>
 
 You can test node2loc on the uploaded train_dataset.zip using k-fold crossvalidation. <br>
 You can also predict the location for the proteins in test_dataset.zip using the trained node2loc model on train_dataset.zip. The output file gives the predicted locations for all proteins in the test set. <br>
